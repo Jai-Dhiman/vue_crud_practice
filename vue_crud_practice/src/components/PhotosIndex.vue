@@ -14,6 +14,7 @@ export default {
       <img v-bind:src="photo.url" />
       <p>Width: {{ photo.width }}</p>
       <p>Height: {{ photo.height }}</p>
+      <button v-on:click="$emit('showPhoto', photo)">More info</button>
     </div>
   </div>
 </template>
