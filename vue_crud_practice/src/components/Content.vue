@@ -47,12 +47,20 @@ export default {
     },
     handleUpdatePhoto: function (id, params) {
       console.log("handleUpdatePhoto", id, params);
+
+      const updateParams = {
+        name: params.name,
+        url: params.url,
+        width: parseInt(params.width),
+        height: parseInt(params.height),
+      };
+
       axios
-        .patch(`http://localhost:5000/photos/${id}.json`, params)
+        .patch(`http://localhost:5000/photos/${id}.json`, updateParams)
         .then((response) => {
           console.log("photos update", response);
           this.photos = this.photos.map((photo) => {
-            if (photo.id === response.data.id) {
+            if (photo.id === parseInt(id)) {
               return response.data;
             } else {
               return photo;

@@ -13,7 +13,21 @@ export default {
   },
   methods: {
     handleSubmit: function () {
-      this.$emit("updatePhoto", this.photo.id, this.editPhotoParams);
+      const params = {
+        name: this.editPhotoParams.name,
+        url: this.editPhotoParams.url,
+        width: parseInt(this.editPhotoParams.width),
+        height: parseInt(this.editPhotoParams.height),
+      };
+      this.$emit("updatePhoto", this.photo.id, params);
+    },
+  },
+  watch: {
+    photo: {
+      handler(newPhoto) {
+        this.editPhotoParams = { ...newPhoto };
+      },
+      deep: true,
     },
   },
 };
