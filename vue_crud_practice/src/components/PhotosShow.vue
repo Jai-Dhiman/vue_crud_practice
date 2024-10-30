@@ -21,6 +21,13 @@ export default {
 
 <template>
   <div>
+    <div class="photo-display">
+      <img
+        :src="photo.url"
+        :alt="photo.name"
+        :style="{ maxWidth: photo.width + 'px', maxHeight: photo.height + 'px' }"
+      />
+    </div>
     <h1>Photo information</h1>
     <p>Name: {{ photo.name }}</p>
     <p>Url: {{ photo.url }}</p>

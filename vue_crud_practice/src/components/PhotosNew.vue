@@ -2,13 +2,29 @@
 export default {
   data: function () {
     return {
-      newPhotoParams: {},
+      newPhotoParams: {
+        name: "",
+        url: "",
+        width: "",
+        height: "",
+      },
     };
   },
   methods: {
     handleSubmit: function () {
+      const params = {
+        name: this.newPhotoParams.name,
+        url: this.newPhotoParams.url,
+        width: parseInt(this.newPhotoParams.width),
+        height: parseInt(this.newPhotoParams.height),
+      };
       this.$emit("createPhoto", this.newPhotoParams);
-      this.newPhotoParams = {};
+      this.newPhotoParams = {
+        name: "",
+        url: "",
+        width: "",
+        height: "",
+      };
     },
   },
 };
