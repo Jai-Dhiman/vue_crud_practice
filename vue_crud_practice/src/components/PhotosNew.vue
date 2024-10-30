@@ -5,6 +5,7 @@ export default {
       newPhotoParams: {
         name: "",
         url: "",
+        body: "",
         width: "",
         height: "",
       },
@@ -15,6 +16,7 @@ export default {
       const params = {
         name: this.newPhotoParams.name,
         url: this.newPhotoParams.url,
+        body: this.newPhotoParams.body,
         width: parseInt(this.newPhotoParams.width),
         height: parseInt(this.newPhotoParams.height),
       };
@@ -22,6 +24,7 @@ export default {
       this.newPhotoParams = {
         name: "",
         url: "",
+        body: "",
         width: "",
         height: "",
       };
@@ -42,6 +45,10 @@ export default {
       <div>
         Url:
         <input type="text" v-model="newPhotoParams.url" />
+      </div>
+      <div>
+        Body:
+        <input type="text" v-model="newPhotoParams.body" />
       </div>
       <div>
         Width:

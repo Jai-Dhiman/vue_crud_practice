@@ -16,6 +16,7 @@ export default {
       const params = {
         name: this.editPhotoParams.name,
         url: this.editPhotoParams.url,
+        body: this.editPhotoParams.body,
         width: parseInt(this.editPhotoParams.width),
         height: parseInt(this.editPhotoParams.height),
       };
@@ -42,11 +43,9 @@ export default {
         :style="{ maxWidth: photo.width + 'px', maxHeight: photo.height + 'px' }"
       />
     </div>
-    <h1>Photo information</h1>
-    <p>Name: {{ photo.name }}</p>
-    <p>Url: {{ photo.url }}</p>
-    <p>Width: {{ photo.width }}</p>
-    <p>Height: {{ photo.height }}</p>
+    <h1>{{ photo.name }}</h1>
+    <p>{{ photo.body }}</p>
+
     <form v-on:submit.prevent="handleSubmit">
       <div>
         Name:
@@ -55,6 +54,10 @@ export default {
       <div>
         Url:
         <input v-model="editPhotoParams.url" type="text" />
+      </div>
+      <div>
+        Body:
+        <input v-model="editPhotoParams.body" type="text" />
       </div>
       <div>
         Width:

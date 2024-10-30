@@ -51,6 +51,7 @@ export default {
       const updateParams = {
         name: params.name,
         url: params.url,
+        body: params.body,
         width: parseInt(params.width),
         height: parseInt(params.height),
       };
